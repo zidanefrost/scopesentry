@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ScopeSentry is a safe reconnaissance reporting demo built for portfolio use.">
+  <title>ScopeSentry | Recon Reporting Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="https://github.com/zidanefrost" class="back-link" target="_blank" rel="noreferrer">GitHub profile</a>
+    <span class="status-pill">Python CLI + GitHub Pages demo</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Authorized web metadata collection</p>
+        <h1>ScopeSentry</h1>
+        <p class="lede">
+          A public-safe reconnaissance pipeline that accepts an authorized URL scope, analyzes HTTP metadata, and emits a
+          clean report that is easy to review or publish in a portfolio.
+        </p>
+        <div class="cta-row">
+          <a class="button" href="./README.md">Open README</a>
+          <a class="button button-ghost" href="./output/demo-report.html">View generated report</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Pipeline stages</h2>
+        <ol>
+          <li>Load an authorized URL scope list</li>
+          <li>Collect fixture data or live HTTP metadata</li>
+          <li>Score missing headers and exposed routes</li>
+          <li>Export HTML and JSON evidence</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span id="target-count">0</span>
+        <p>Targets in the bundled demo</p>
+      </article>
+      <article class="summary-card">
+        <span id="high-risk-count">0</span>
+        <p>Targets with elevated risk signals</p>
+      </article>
+      <article class="summary-card">
+        <span id="header-gap-count">0</span>
+        <p>Total missing security-header findings</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Bundled synthetic findings</p>
+          <h2>Demo target set</h2>
+        </div>
+      </div>
+      <div id="target-grid" class="target-grid"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

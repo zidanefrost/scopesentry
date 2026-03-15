@@ -1,0 +1,4 @@
+https://portal.acme-demo.local
+https://api.acme-demo.local
+https://status.acme-demo.local
+https://files.acme-demo.local

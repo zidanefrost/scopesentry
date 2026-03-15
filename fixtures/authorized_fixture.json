@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://portal.acme-demo.local",
+    "status": 200,
+    "title": "Acme Employee Portal",
+    "headers": {
+      "server": "nginx",
+      "content-type": "text/html; charset=utf-8",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff"
+    },
+    "technologies": ["nginx", "Django"],
+    "notes": "Synthetic employee portal fixture for a public-safe demo.",
+    "exposures": [
+      {
+        "path": "/login",
+        "severity": "low",
+        "detail": "Public login surface discovered"
+      },
+      {
+        "path": "/admin",
+        "severity": "high",
+        "detail": "Administrative route exposed to the edge"
+      }
+    ]
+  },
+  {
+    "url": "https://api.acme-demo.local",
+    "status": 200,
+    "title": "Acme API Gateway",
+    "headers": {
+      "server": "envoy",
+      "content-type": "application/json",
+      "strict-transport-security": "max-age=31536000",
+      "content-security-policy": "default-src 'none'",
+      "x-frame-options": "DENY",
+      "x-content-type-options": "nosniff"
+    },
+    "technologies": ["Envoy", "FastAPI"],
+    "notes": "Synthetic API surface with strong baseline headers.",
+    "exposures": [
+      {
+        "path": "/openapi.json",
+        "severity": "medium",
+        "detail": "Public schema endpoint available"
+      }
+    ]
+  },
+  {
+    "url": "https://status.acme-demo.local",
+    "status": 200,
+    "title": "Acme Status Board",
+    "headers": {
+      "server": "cloudflare",
+      "content-type": "text/html; charset=utf-8",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "technologies": ["Cloudflare Pages", "Next.js"],
+    "notes": "Synthetic status page used to show missing header detection.",
+    "exposures": []
+  },
+  {
+    "url": "https://files.acme-demo.local",
+    "status": 403,
+    "title": "Acme Files",
+    "headers": {
+      "server": "caddy",
+      "content-type": "text/html; charset=utf-8",
+      "strict-transport-security": "max-age=31536000",
+      "x-frame-options": "DENY",
+      "x-content-type-options": "nosniff"
+    },
+    "technologies": ["Caddy", "MinIO"],
+    "notes": "Synthetic object-store edge with restrictive responses.",
+    "exposures": [
+      {
+        "path": "/public-backups/",
+        "severity": "medium",
+        "detail": "Indexable-looking storage prefix noted in fixture data"
+      }
+    ]
+  }
+]
