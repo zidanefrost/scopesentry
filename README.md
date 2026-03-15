@@ -45,4 +45,4 @@ It is intentionally not a scanner for arbitrary hosts or ports.
 
 - Use live mode only on systems you own or are authorized to assess.
 - Keep public demos fixture-driven unless you are deliberately documenting your own infrastructure.
-- The included fixture data is synthetic so the repo stays safe to publish.
+- The included fixture data is synthetic so the repo stays safe for a public portfolio.
